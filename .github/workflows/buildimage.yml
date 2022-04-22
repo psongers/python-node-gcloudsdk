@@ -19,8 +19,8 @@ jobs:
     - name: Build the image.
       id: build
       run: |
-        docker build \
-        --build-arg pythonversion=${{ matrix.python }} \
+        docker build
+        --build-arg pythonversion=${{ matrix.python }}
         --build-arg nodejsversion=${{ matrix.node }} 
-        --build-arg nodejsversion=${{ matrix.gcloudsdk }} \
+        --build-arg nodejsversion=${{ matrix.gcloudsdk }}
         -t ${DOCKER_TAG}
