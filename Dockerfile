@@ -1,6 +1,6 @@
 ARG pythonversion 3.9
 ARG nodejsversion 17
-ARG gcloudversion 382.0.0
+ARG gcloudsdkversion 382.0.0
 
 FROM nikolaik/python-nodejs:python${pythonversion}-nodejs${nodejsversion}
 

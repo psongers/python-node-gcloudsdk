@@ -22,6 +22,6 @@ jobs:
         docker build \
           --build-arg pythonversion=${{ matrix.python }} \
           --build-arg nodejsversion=${{ matrix.node }} \
-          --build-arg nodejsversion=${{ matrix.gcloudsdk }} \
+          --build-arg gcloudsdkversion=${{ matrix.gcloudsdk }} \
           -t ${DOCKER_TAG} \
           .
