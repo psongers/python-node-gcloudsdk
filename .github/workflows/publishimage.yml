@@ -1,18 +1,17 @@
 name: Publish Docker Image
 
-on:
-  - pull_request
-  #push:
-  #  branches:
-  #    - master
+on
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['16']
-        python: ['3.10']
+        node: ['16', '17']
+        python: ['3.9', '4.10']
         gcloudsdk: ['382.0.0']
     env:
       DOCKER_TAG: "${{ matrix.python }}-${{ matrix.node }}-${{ matrix.gcloudsdk }}"

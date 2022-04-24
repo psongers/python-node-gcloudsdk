@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['17']
+        node: ['16']
         python: ['3.10']
         gcloudsdk: ['382.0.0']
     env:
