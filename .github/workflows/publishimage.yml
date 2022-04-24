@@ -1,10 +1,10 @@
-name: Build Docker Image
+name: Publish Docker Image Docker Image
 
 on:
-  push:
-    branches:
-      - master
   - pull_request
+  #push:
+  #  branches:
+  #    - master
 
 jobs:
   build:
