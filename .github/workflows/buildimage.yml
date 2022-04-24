@@ -1,7 +1,6 @@
 name: Build Docker Image
 
 on:
-- push
 - pull_request
 
 jobs:
@@ -23,5 +22,4 @@ jobs:
           --build-arg pythonversion=${{ matrix.python }} \
           --build-arg nodejsversion=${{ matrix.node }} \
           --build-arg gcloudsdkversion=${{ matrix.gcloudsdk }} \
-          -t ${DOCKER_TAG} \
           .
