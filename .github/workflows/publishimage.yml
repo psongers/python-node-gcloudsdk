@@ -31,6 +31,6 @@ jobs:
         push: true
         tags: psongers/python-node-gcloudsdk:${{ env.DOCKER_TAG }}
         build-args: |
-          pythonversion: ${{ matrix.python }}
-          nodejsversion: ${{ matrix.node }}
-          gcloudsdkversion: ${{ matrix.gcloudsdk }}
+          "pythonversion=${{ matrix.python }}"
+          "nodejsversion=${{ matrix.node }}"
+          "gcloudsdkversion=${{ matrix.gcloudsdk }}"
