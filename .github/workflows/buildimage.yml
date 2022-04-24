@@ -1,7 +1,6 @@
 name: Build Docker Image
 
 on:
-- push
 - pull_request
 
 jobs:
@@ -9,17 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14, 17]
-        python: [3.9, 3.10]
-        gcloudsdk: [382.0.0]
+        node: ['16']
+        python: ['3.10']
+        gcloudsdk: ['382.0.0']
     env:
       DOCKER_TAG: "${{ matrix.python }}-${{ matrix.node }}-${{ matrix.gcloudsdk }}"
     steps:
     - uses: actions/checkout@v3
     - name: Build the image.
       id: build
-      run: docker build \
-        --build-arg pythonversion=${{ matrix.python }} \
-        --build-arg nodejsversion=${{ matrix.node }} \
-        --build-arg nodejsversion=${{ matrix.gcloudsdk }} \
-        -t ${DOCKER_TAG}
+      run: |
+        docker build \
+          --build-arg pythonversion=${{ matrix.python }} \
+          --build-arg nodejsversion=${{ matrix.node }} \
+          --build-arg gcloudsdkversion=${{ matrix.gcloudsdk }} \
+          .

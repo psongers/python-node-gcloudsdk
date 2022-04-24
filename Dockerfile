@@ -1,10 +1,11 @@
-ARG pythonversion 3.9
-ARG nodejsversion 17
-ARG gcloudversion 382.0.0
+ARG pythonversion
+ARG nodejsversion
 
 FROM nikolaik/python-nodejs:python${pythonversion}-nodejs${nodejsversion}
 
-RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${gcloud_version}-linux-x86_64.tar.gz
+ARG gcloudsdkversion  # https://docs.docker.com/engine/reference/builder/#scope
 
-RUN ls && tar -xf google-cloud-cli-${gcloud_version}-linux-x86_64.tar.gz \
-    && ./google-cloud-sdk/install.sh --quiet --path-update=true
+RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${gcloudsdkversion}-linux-x86_64.tar.gz \
+    && tar -xf google-cloud-cli-${gcloudsdkversion}-linux-x86_64.tar.gz \
+    && ./google-cloud-sdk/install.sh --quiet --path-update=true \
+    && rm -rf  *.tar.gz && rm -rf ./google-cloud-sdk
