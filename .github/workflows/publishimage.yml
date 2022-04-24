@@ -1,4 +1,4 @@
-name: Publish Docker Image Docker Image
+name: Publish Docker Image
 
 on:
   - pull_request
@@ -31,7 +31,7 @@ jobs:
         context: .
         push: true
         tags: $DOCKER_TAG
-        build-args:
-          - pythonversion: ${{ matrix.python }}
-          - nodejsversion: ${{ matrix.node }}
-          - gcloudsdkversion: ${{ matrix.gcloudsdk }}
+        build-args: |
+          "pythonversion: ${{ matrix.python }}"
+          "nodejsversion: ${{ matrix.node }}"
+          "gcloudsdkversion: ${{ matrix.gcloudsdk }}"
