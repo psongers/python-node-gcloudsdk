@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['14', '17']
-        python: ['3.9', '3.10']
+        node: ['17']
+        python: ['3.10']
         gcloudsdk: ['382.0.0']
     env:
       DOCKER_TAG: "${{ matrix.python }}-${{ matrix.node }}-${{ matrix.gcloudsdk }}"
